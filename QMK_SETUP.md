@@ -3,7 +3,9 @@
 QMK is an open source keyboard firmware that supports a ton of different keyboards and micro controllers. 
 
 //TODO links to docs/downloads/etc
+
 // TODO TOC
+
 // TODO look into running qmk_config/qmk_api/qmk_compiler locally in case network access is an issue
 
 ## Every which way
@@ -24,7 +26,8 @@ Regardless of the method of setup for compiling the firmware, the QMK Toolbox th
 1. Clone the qmk_firmware repository. 
 
 ```bash
-
+git clone --recurse-submodules https://github.com/qmk/qmk_firmware.git
+cd qmk_firmware
 ```
 
 2. Make sure you have Docker for Mac installed https://docs.docker.com/docker-for-mac/install/
@@ -40,10 +43,11 @@ At the end of this setup you will have a fully configured build and flash enviro
 1. Clone the qmk_firmware repository. 
 
 ```bash
-
+git clone --recurse-submodules https://github.com/qmk/qmk_firmware.git
+cd qmk_firmware
 ```
 
-2. Ensure you have homebrew installed and up to date
+2. Ensure you have homebrew installed and up to date https://brew.sh/
 
 3. From the root of the repository, run the setup script
 
