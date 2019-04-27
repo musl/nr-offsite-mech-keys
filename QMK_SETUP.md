@@ -16,7 +16,9 @@ Regardless of the method of setup for compiling the firmware, the QMK Toolbox th
 
 1. Download and install the QMK Toolbox. This tool allows for very easy flashing of firmware onto keyboards using a GUI and automatic controller detection. Get the Toolbox here:
 
-## Easy way
+## Easy way 
+
+// Change to use the provided hex that is checked into this repo
 
 
 1. Use https://config.qmk.fm/#/ for creating your keymap. This lets you define the keymap, compile it, and download the resulting hex file to flash using the Toolbox; all without installing any dependencies or cloning the firmware repository. 
