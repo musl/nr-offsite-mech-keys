@@ -2,26 +2,17 @@
 
 QMK is an open source keyboard firmware that supports a ton of different keyboards and micro controllers. 
 
-//TODO links to docs/downloads/etc
-
-// TODO TOC
-
-// TODO look into running qmk_config/qmk_api/qmk_compiler locally in case network access is an issue
-
 ## Every which way
-
-// TODO check if Toolbox needs external deps for flashing or if they are bundled in
 
 Regardless of the method of setup for compiling the firmware, the QMK Toolbox the easiest way to flash firmware. 
 
-1. Download and install the QMK Toolbox. This tool allows for very easy flashing of firmware onto keyboards using a GUI and automatic controller detection. Get the Toolbox here:
+1. Download [QMK.Toolbox.app.zip](https://github.com/musl/nr-offsite-mech-keys/blob/master/QMK.Toolbox.app.zip) (or grab it locally if you have the repository checked out) and unzip it. Run the application and you should see this window. You're ready to flash a prebuilt firmware!
+
+![Screen Shot 2019-04-28 at 3.58.51 PM](assets/qmk_toolbox.png)
 
 ## Easy way 
 
-// Change to use the provided hex that is checked into this repo
-
-
-1. Use https://config.qmk.fm/#/ for creating your keymap. This lets you define the keymap, compile it, and download the resulting hex file to flash using the Toolbox; all without installing any dependencies or cloning the firmware repository. 
+Use the provided prebuilt firmware binary here //TODO link and then follow the flashing guide here //TODO link
 
 ## Hard way
 
@@ -36,6 +27,7 @@ cd qmk_firmware
 
 
 3. Follow the guide here: https://docs.qmk.fm/#/getting_started_build_tools?id=docker to get setup for compiling with Docker. 
+4. Follow the flashing guide here: //TODO link
 
 ## Harder way
 
@@ -57,3 +49,4 @@ cd qmk_firmware
 $ util/qmk_install.sh
 ```
 
+4. Follow the flashing guide here: //TODO link
