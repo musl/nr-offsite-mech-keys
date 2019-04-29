@@ -1,8 +1,16 @@
 # QMK Setup Guide
 
+
+
+## What is QMK?
+
 QMK is an open source keyboard firmware that supports a ton of different keyboards and micro controllers. 
 
-## Every which way
+## What are we building?
+
+https://keeb.io/products/bdn9-3x3-9-key-macropad-rotary-encoder-support?variant=15959960944734
+
+## Getting setup
 
 Regardless of the method of setup for compiling the firmware, the QMK Toolbox the easiest way to flash firmware. 
 
@@ -10,43 +18,51 @@ Regardless of the method of setup for compiling the firmware, the QMK Toolbox th
 
 ![Screen Shot 2019-04-28 at 3.58.51 PM](assets/qmk_toolbox.png)
 
-## Easy way 
 
-Use the provided prebuilt firmware binary here //TODO link and then follow the flashing guide here //TODO link
 
-## Hard way
+## Compiling easy way
 
-1. Clone the qmk_firmware repository. 
+1. Open a terminal
+2. Clone the this repository which has qmk_firmware vendored. 
 
 ```bash
-git clone --recurse-submodules https://github.com/qmk/qmk_firmware.git
+git clone https://github.com/musl/nr-offsite-mech-keys.git
 cd qmk_firmware
 ```
 
 2. Make sure you have Docker for Mac installed https://docs.docker.com/docker-for-mac/install/
 
-
-3. Follow the guide here: https://docs.qmk.fm/#/getting_started_build_tools?id=docker to get setup for compiling with Docker. 
-4. Follow the flashing guide here: //TODO link
-
-## Harder way
-
-At the end of this setup you will have a fully configured build and flash environment for QMK. Full docs from QMK here: https://docs.qmk.fm/#/newbs_getting_started?id=set-up-qmk
+   ``` bash
+   $ docker --version
+   Docker version 18.09.2, build 6247962
+   ```
 
 
-1. Clone the qmk_firmware repository. 
+3. cd into the qmk_firmware subdirectory
 
-```bash
-git clone --recurse-submodules https://github.com/qmk/qmk_firmware.git
-cd qmk_firmware
-```
+   ```bash
+   $ cd qmk_firmware
+   ```
 
-2. Ensure you have homebrew installed and up to date https://brew.sh/
+4. Run the utility script to compile the firmware with docker
 
-3. From the root of the repository, run the setup script
+   ```bash
+   $ util/docker_build.sh keyboard:keymap
+   ```
 
-```bash
-$ util/qmk_install.sh
-```
+   For our macropod, run this command
 
-4. Follow the flashing guide here: //TODO link
+   ```bash
+   $ ./util/docker_build.sh keebio/bdn9:default
+   # this will output the hex into the root qmk_firmware directory
+   $ ls | grep hex
+   keebio_bdn9_default.hex
+   ```
+
+   5. Follow the flashing guide to flash the resulting firmware binary onto the macropod.
+
+## Compiling harder way
+
+1. Go follow the guide for the full qmk setup here: https://docs.qmk.fm/#/newbs_getting_started
+
+   
