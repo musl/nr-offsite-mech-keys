@@ -1,7 +1,5 @@
 # QMK Setup Guide
 
-
-
 ## What is QMK?
 
 QMK is an open source keyboard firmware that supports a ton of different keyboards and micro controllers. 
@@ -23,10 +21,10 @@ Regardless of the method of setup for compiling the firmware, the QMK Toolbox th
 ## Compiling easy way
 
 1. Open a terminal
-2. Clone the this repository which has qmk_firmware vendored. 
+2. Clone qmk_firmware reopsitory 
 
 ```bash
-git clone https://github.com/musl/nr-offsite-mech-keys.git
+git clone https://github.com/qmk/qmk_firmware.git
 cd qmk_firmware
 ```
 
