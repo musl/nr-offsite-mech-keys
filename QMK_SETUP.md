@@ -18,12 +18,13 @@ Regardless of the method of setup for compiling the firmware, the QMK Toolbox th
 
 2. Brew install ALL THE THINGS!
 
-   ```bash
-   brew tap osx-cross/avr
-   brew install avrdude
-   brew cask install docker  # You may already have docker for mac, so skip this if you do
-   brew cask install caskroom/drivers/qmk-toolbox
-   ```
+```bash
+brew tap osx-cross/avr
+brew install avrdude
+brew cask install docker  # You may already have docker for mac, so skip this if you do
+brew cask install caskroom/drivers/qmk-toolbox
+```
+
 3. Make sure they work
 
     a. Open the Docker for Mac application to run the docker daemon
@@ -34,12 +35,13 @@ Regardless of the method of setup for compiling the firmware, the QMK Toolbox th
 ## Compiling the default firmware
 
 1. Make sure you have the qmk_firmware git repository checked out
-    ```bash
-    git clone https://github.com/qmk/qmk_firmware.git
-    cd qmk_firmware
-    ```
-2. Run the utility script to compile the `default` layout for the BDN9 in the Keep.io directory
 
+```bash
+git clone https://github.com/qmk/qmk_firmware.git
+cd qmk_firmware
+```
+
+2. Run the utility script to compile the `default` layout for the BDN9 in the Keep.io directory
 
 ```bash
 # The target keyboard has the form <path-to-keyboard>:<layout folder>.
@@ -65,7 +67,7 @@ Full docs: https://docs.qmk.fm/#/newbs_flashing
 
 4. Press the reset button on the macropad
 
-> NOTE: If you this this in the output, then press the reset button again or turn off bluetooth and press it again
+> NOTE: If you see this in the output, then press the reset button again or turn off bluetooth and press it again until you see something like `Found port: /dev/cu.usbmodem1401`
 
 ```
 *** Caterina device connected
@@ -91,8 +93,10 @@ These are the default layers
 2. Run the helper script to bootstrap a new layout
 
 ```bash
-./util/new_keymap.sh keebio/bdn9 jwelch92
+./util/new_keymap.sh keebio/bdn9 $USER
 ```
+
+This will output something like this: 
 
 ```bash
 jwelch92 keymap directory created in: qmk_firmware/keyboards/keebio/bdn9/keymaps/
@@ -103,6 +107,11 @@ from the qmk_firmware directory
 ```
 
 3. Open the resulting `keymap.c` file in your favorite code/text editor
+
+```
+subl keyboards/keebio/bdn9/keymaps/$USER/keymap.c
+```
+
 4. You should see this keymap layout
 
 ![keymap](assets/keymap.png)
@@ -131,3 +140,4 @@ Simple browser layout: https://github.com/qmk/qmk_firmware/blob/master/keyboards
 
 Complicated KSP layout: https://github.com/qmk/qmk_firmware/blob/master/keyboards/keebio/bdn9/keymaps/vosechu-ksp/keymap.c
 
+Going farther yet!: https://github.com/musl/nr-offsite-mech-keys/tree/master/hotkey_reassigning
