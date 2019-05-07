@@ -82,9 +82,9 @@ Full docs: https://docs.qmk.fm/#/newbs_flashing
 
 These are the default layers
 
-![layer1](assets/layer1.png)
+![layer1](assets/layer1.jpg)
 
-![layer2](assets/layer2.png)
+![layer2](assets/layer2.jpg)
 
 1. Make sure you have the qmk_firmware git repository checked out
 2. Run the helper script to bootstrap a new layout
