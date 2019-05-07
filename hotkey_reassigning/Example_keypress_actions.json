@@ -1,0 +1,93 @@
+{
+  "title": "Example keypress actions",
+  "rules": [
+    {
+      "description": " 1 + Lshift + Lcmd (l_gui) = Switch to Slack",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "left_gui",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"Slack\" to activate'"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": " 2 + Lshift + Lcontrol = Switch to ITerm",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"Iterm\" to activate'"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": " 2 + Lshift + Lcontrol = Switch to Chrome",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "left_control",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"Chrome\" to activate'"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Lcontrol + Lshift + `(tilde) = new Chrome Window",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "mandatory": [
+                "left_gui",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"Google Chrome\"' -e 'make new window' -e activate -e end"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
