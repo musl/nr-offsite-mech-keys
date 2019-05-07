@@ -65,13 +65,13 @@ Full docs: https://docs.qmk.fm/#/newbs_flashing
 
 4. Press the reset button on the macropad
 
-![reset-button](assets/press_reset.png)
-
-NOTE: If you this this in the output, then press the reset button again or turn off bluetooth and press it again
+> NOTE: If you this this in the output, then press the reset button again or turn off bluetooth and press it again
 ```
 *** Caterina device connected
     Found port: /dev/cu.Bluetooth-Incoming-Port
 ```
+
+![reset-button](assets/press_reset.png)
 
 5. Click the 'Flash' button
 6. You should see output like this
@@ -109,6 +109,8 @@ from the qmk_firmware directory
 5. Check out the QMK docs or our examples in this repo to start customizing!
 
 QMK Docs: https://docs.qmk.fm/#/newbs_building_firmware?id=customize-the-layout-to-your-liking
+
 Simple browser layout: https://github.com/qmk/qmk_firmware/blob/master/keyboards/keebio/bdn9/keymaps/vosechu-browser/keymap.c
+
 Complicated KSP layout: https://github.com/qmk/qmk_firmware/blob/master/keyboards/keebio/bdn9/keymaps/vosechu-ksp/keymap.c
 
