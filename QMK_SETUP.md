@@ -44,20 +44,16 @@ cd qmk_firmware
 
 4. Run the utility script to compile the firmware with docker
 
-   ```bash
-   $ util/docker_build.sh keyboard:keymap
-   ```
-
    For our macropod, run this command
-
+   
    ```bash
-   $ ./util/docker_build.sh keebio/bdn9:default
+$ ./util/docker_build.sh keebio/bdn9:default
    # this will output the hex into the root qmk_firmware directory
-   $ ls | grep hex
+$ ls | grep hex
    keebio_bdn9_default.hex
    ```
-
-   5. Follow the flashing guide to flash the resulting firmware binary onto the macropod.
+   
+   5. Follow the flashing guide (TBD) to flash the resulting firmware binary onto the macropod.
 
 ## Compiling harder way
 
