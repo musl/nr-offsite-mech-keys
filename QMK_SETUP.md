@@ -22,7 +22,7 @@ Regardless of the method of setup for compiling the firmware, the QMK Toolbox th
    brew tap osx-cross/avr
    brew install avrdude
    brew cask install docker  # You may already have docker for mac, so skip this if you do
-   brew cask install qmk-toolbox
+   brew cask install caskroom/drivers/qmk-toolbox
    ```
 3. Make sure they work
 
