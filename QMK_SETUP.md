@@ -40,9 +40,9 @@ Regardless of the method of setup for compiling the firmware, the QMK Toolbox th
     ```
 2. Run the utility script to compile the `default` layout for the BDN9 in the Keep.io directory
 
-> The target keyboard has the form <path-to-keyboard>:<layout folder>.
 
 ```bash
+# The target keyboard has the form <path-to-keyboard>:<layout folder>.
 ./util/docker_build.sh keebio/bdn9:default
 # this will output the hex into the root qmk_firmware directory
 ls | grep hex
@@ -66,6 +66,7 @@ Full docs: https://docs.qmk.fm/#/newbs_flashing
 4. Press the reset button on the macropad
 
 > NOTE: If you this this in the output, then press the reset button again or turn off bluetooth and press it again
+
 ```
 *** Caterina device connected
     Found port: /dev/cu.Bluetooth-Incoming-Port
@@ -108,7 +109,23 @@ from the qmk_firmware directory
 
 5. Check out the QMK docs or our examples in this repo to start customizing!
 
+#### Docs
+
 QMK Docs: https://docs.qmk.fm/#/newbs_building_firmware?id=customize-the-layout-to-your-liking
+
+Keycodes: https://docs.qmk.fm/#/keycodes
+
+Advanced keycodes: https://docs.qmk.fm/#/feature_advanced_keycodes
+
+Lighting: https://docs.qmk.fm/#/feature_rgblight
+
+Tap dance: https://docs.qmk.fm/#/feature_tap_dance
+
+Unicode: https://docs.qmk.fm/#/feature_unicode
+
+Debugging: https://docs.qmk.fm/#/newbs_testing_debugging & https://docs.qmk.fm/#/faq_debug (edited) 
+
+#### Example layouts (Thanks @vosechu !)
 
 Simple browser layout: https://github.com/qmk/qmk_firmware/blob/master/keyboards/keebio/bdn9/keymaps/vosechu-browser/keymap.c
 
