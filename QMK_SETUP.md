@@ -1,62 +1,114 @@
-# QMK Setup Guide
+# QMK Guide
 
-## What is QMK?
+### What is QMK?
 
-QMK is an open source keyboard firmware that supports a ton of different keyboards and micro controllers. 
+QMK is an open source keyboard firmware that supports a ton of different keyboards and micro controllers.
 
-## What are we building?
+### What are we building?
 
 https://keeb.io/products/bdn9-3x3-9-key-macropad-rotary-encoder-support?variant=15959960944734
 
+### How to get/find help
+
 ## Getting setup
 
-Regardless of the method of setup for compiling the firmware, the QMK Toolbox the easiest way to flash firmware. 
+Regardless of the method of setup for compiling the firmware, the QMK Toolbox the easiest way to flash firmware.
 
-1. Download [QMK.Toolbox.app.zip](https://github.com/musl/nr-offsite-mech-keys/blob/master/QMK.Toolbox.app.zip) (or grab it locally if you have the repository checked out) and unzip it. Run the application and you should see this window. You're ready to flash a prebuilt firmware!
+1. Make sure you have brew installed, get it [here](https://brew.sh/)
 
-![Screen Shot 2019-04-28 at 3.58.51 PM](assets/qmk_toolbox.png)
+2. Brew install ALL THE THINGS!
+
+   ```bash
+   brew tap osx-cross/avr
+   brew install avrdude
+   brew cask install docker  # You may already have docker for mac, so skip this if you do
+   brew cask install qmk-toolbox
+   ```
+3. Make sure they work
+
+    a. Open the Docker for Mac application to run the docker daemon
+
+    b. Open the QMK Toolbox application to make sure its working, you'll use this later to flash the firmware onto the keyboard.
 
 
+## Compiling the default firmware
 
-## Compiling easy way
+1. Make sure you have the qmk_firmware git repository checked out
+    ```bash
+    git clone https://github.com/qmk/qmk_firmware.git
+    cd qmk_firmware
+    ```
+2. Run the utility script to compile the `default` layout for the BDN9 in the Keep.io directory
 
-1. Open a terminal
-2. Clone qmk_firmware reopsitory 
+> The target keyboard has the form <path-to-keyboard>:<layout folder>.
 
 ```bash
-git clone https://github.com/qmk/qmk_firmware.git
-cd qmk_firmware
+./util/docker_build.sh keebio/bdn9:default
+# this will output the hex into the root qmk_firmware directory
+ls | grep hex
+# keebio_bdn9_default.hex
 ```
 
-2. Make sure you have Docker for Mac installed https://docs.docker.com/docker-for-mac/install/
+![building-firmware](assets/build_output.png)
 
-   ``` bash
-   $ docker --version
-   Docker version 18.09.2, build 6247962
-   ```
+## Flashing the default firmware
 
+Full docs: https://docs.qmk.fm/#/newbs_flashing
 
-3. cd into the qmk_firmware subdirectory
+1. Open QMK Toolbox
 
-   ```bash
-   $ cd qmk_firmware
-   ```
+2. Make sure the macropad is connected, you should see it show up in the Toolbox
 
-4. Run the utility script to compile the firmware with docker
+![qmk-toolbox](assets/qmk_toolbox.png)
 
-   For our macropod, run this command
-   
-   ```bash
-$ ./util/docker_build.sh keebio/bdn9:default
-   # this will output the hex into the root qmk_firmware directory
-$ ls | grep hex
-   keebio_bdn9_default.hex
-   ```
-   
-   5. Follow the flashing guide (TBD) to flash the resulting firmware binary onto the macropod.
+3. Select the `keebio_bdn9_default.hex` that was built in the previous section
 
-## Compiling harder way
+4. Press the reset button on the macropad
 
-1. Go follow the guide for the full qmk setup here: https://docs.qmk.fm/#/newbs_getting_started
+![reset-button](assets/press_reset.png)
 
-   
+NOTE: If you this this in the output, then press the reset button again or turn off bluetooth and press it again
+```
+*** Caterina device connected
+    Found port: /dev/cu.Bluetooth-Incoming-Port
+```
+
+5. Click the 'Flash' button
+6. You should see output like this
+
+![flashed!](assets/successful_flash.png)
+
+## Customizing the layout
+
+These are the default layers
+
+![layer1](assets/layer1.png)
+
+![layer2](assets/layer2.png)
+
+1. Make sure you have the qmk_firmware git repository checked out
+2. Run the helper script to bootstrap a new layout
+
+```bash
+./util/new_keymap.sh keebio/bdn9 jwelch92
+```
+
+```bash
+jwelch92 keymap directory created in: qmk_firmware/keyboards/keebio/bdn9/keymaps/
+
+Compile a firmware file with your new keymap by typing:
+   make keebio/bdn9:jwelch92
+from the qmk_firmware directory
+```
+
+3. Open the resulting `keymap.c` file in your favorite code/text editor
+4. You should see this keymap layout
+
+![keymap](assets/keymap.png)
+
+5. Check out the QMK docs or our examples in this repo to start customizing!
+
+QMK Docs: https://docs.qmk.fm/#/newbs_building_firmware?id=customize-the-layout-to-your-liking
+Simple browser layout: https://github.com/qmk/qmk_firmware/blob/master/keyboards/keebio/bdn9/keymaps/vosechu-browser/keymap.c
+Complicated KSP layout: https://github.com/qmk/qmk_firmware/blob/master/keyboards/keebio/bdn9/keymaps/vosechu-ksp/keymap.c
+
