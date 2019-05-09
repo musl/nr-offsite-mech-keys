@@ -81,6 +81,16 @@ Full docs: https://docs.qmk.fm/#/newbs_flashing
 
 ![flashed!](assets/successful_flash.png)
 
+### Alternate flashing utility
+
+```
+# Press reset button
+# List usb devices until one shows up
+ls /dev/cu.usb*
+# Quickly edit this line with the `/dev/*` entry and execute this line
+avrdude -patmega32u4 -cavr109 -b57600 -Uflash:w:keebio_bdn9_default.hex -P/dev/cu.usbmodem1401
+```
+
 ## Customizing the layout
 
 These are the default layers
